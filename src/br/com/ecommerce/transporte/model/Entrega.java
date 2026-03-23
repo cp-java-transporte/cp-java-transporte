@@ -28,7 +28,7 @@ public class Entrega {
         this.id = id;
     }
 
-    public StatusEnum getStatus() {
+    public Enum getStatus() {
         return status;
     }
 
