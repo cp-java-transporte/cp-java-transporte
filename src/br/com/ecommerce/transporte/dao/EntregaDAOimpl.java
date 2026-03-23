@@ -37,8 +37,4 @@ public class EntregaDAOimpl implements EntregaDAO{
         return null;
     }
 
-    @Override
-    public List<Pedido> listarTodos() {
-        return List.of();
-    }
 }

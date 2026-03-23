@@ -7,5 +7,5 @@ import java.util.List;
 public interface PedidoDAO {
     void salvar(Pedido pedido);
     Pedido buscarPorId(int id);
-    List<Pedido> listarTodos();
+
 }

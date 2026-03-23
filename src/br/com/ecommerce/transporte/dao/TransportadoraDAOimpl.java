@@ -40,11 +40,6 @@ public class TransportadoraDAOimpl implements TransportadoraDAO{
     }
 
     @Override
-    public List<Pedido> listarTodos() {
-        return List.of();
-    }
-
-    @Override
     public void criarEntrega(Entrega entrega) {
         String sql = "INSERT INTO entrega (id, status, valorFrete, prazoDias, pedidoId, transportadoraId) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement statement = conn.prepareStatement(sql)){

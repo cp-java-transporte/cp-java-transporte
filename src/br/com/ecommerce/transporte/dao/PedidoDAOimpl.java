@@ -33,8 +33,4 @@ public class PedidoDAOimpl implements PedidoDAO{
         return null;
     }
 
-    @Override
-    public List<Pedido> listarTodos() {
-        return List.of();
-    }
 }
