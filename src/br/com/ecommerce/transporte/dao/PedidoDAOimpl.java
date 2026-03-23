@@ -1,9 +1,11 @@
 package br.com.ecommerce.transporte.dao;
 
+import br.com.ecommerce.transporte.exception.PedidoException;
 import br.com.ecommerce.transporte.model.Pedido;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -24,12 +26,29 @@ public class PedidoDAOimpl implements PedidoDAO{
             ps.setDouble(3, pedido.getValor());
             ps.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new PedidoException("Erro ao salvar pedido " + e);
         }
     }
 
     @Override
     public Pedido buscarPorId(int id) {
+        String sql = "SELECT * FROM pedido WHERE id = ?";
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return new Pedido(
+                        rs.getInt("id"),
+                        rs.getDouble("peso"),
+                        rs.getDouble("valor")
+                );
+            }
+
+        } catch (SQLException e) {
+            throw new PedidoException("Erro ao buscar pedido " + e);
+        }
         return null;
     }
 
