@@ -24,12 +24,6 @@ public class Transportadora {
         this.prazoDias = prazoDias;
     }
 
-    public Entrega criarEntrega(int id, StatusEnum status, Double valorFrete, int prazoDias, int pedidoId, int transportadoraId, Transportadora transportadora){
-        Entrega entrega = Entrega.criarEntrega(id, status, valorFrete, prazoDias, pedidoId, transportadoraId, transportadora);
-        entregas.add(entrega);
-        return entrega;
-    }
-
     public int getId() {
         return id;
     }
@@ -76,5 +70,17 @@ public class Transportadora {
 
     public void setPrazoDias(int prazoDias) {
         this.prazoDias = prazoDias;
+    }
+
+    public List<Entrega> getEntregas() {
+        return entregas;
+    }
+
+    public void addEntregas(Entrega entrega) {
+        entregas.add(entrega);
+    }
+
+    public void removeEntregas(Entrega entrega) {
+        entregas.remove(entrega);
     }
 }
