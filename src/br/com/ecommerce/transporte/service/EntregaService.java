@@ -5,6 +5,7 @@ import br.com.ecommerce.transporte.dao.EntregaDAOimpl;
 import br.com.ecommerce.transporte.dao.TransportadoraDAO;
 import br.com.ecommerce.transporte.dao.TransportadoraDAOimpl;
 import br.com.ecommerce.transporte.exception.PedidoException;
+import br.com.ecommerce.transporte.exception.TransportadoraException;
 import br.com.ecommerce.transporte.model.Entrega;
 import br.com.ecommerce.transporte.model.Pedido;
 import br.com.ecommerce.transporte.model.StatusEnum;
@@ -33,7 +34,7 @@ public class EntregaService {
             }
         }
 
-        throw new PedidoException("Nenhuma transportadora atende o peso");
+        throw new TransportadoraException("Nenhuma transportadora atende o peso");
     }
 
     public Entrega criarEntrega(Pedido pedido) {
