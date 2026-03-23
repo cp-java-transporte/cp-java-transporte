@@ -1,5 +1,8 @@
 package br.com.ecommerce.transporte.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Transportadora {
 
     private int id;
@@ -8,6 +11,7 @@ public class Transportadora {
     private Double pesoMax;
     private Double valorBase;
     private int prazoDias;
+    private List<Entrega> entregas = new ArrayList<>();
 
     public Transportadora(){}
 
@@ -18,6 +22,12 @@ public class Transportadora {
         this.pesoMax = pesoMax;
         this.valorBase = valorBase;
         this.prazoDias = prazoDias;
+    }
+
+    public Entrega criarEntrega(int id, StatusEnum status, Double valorFrete, int prazoDias, int pedidoId, int transportadoraId, Transportadora transportadora){
+        Entrega entrega = Entrega.criarEntrega(id, status, valorFrete, prazoDias, pedidoId, transportadoraId, transportadora);
+        entregas.add(entrega);
+        return entrega;
     }
 
     public int getId() {
