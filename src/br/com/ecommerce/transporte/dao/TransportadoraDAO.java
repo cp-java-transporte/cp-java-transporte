@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface TransportadoraDAO {
     void salvar(Transportadora transportadora);
-    Pedido buscarPorId(int id);
-
+    Transportadora buscarPorId(int id);
+    List<Transportadora> listarTodas();
 
 }
