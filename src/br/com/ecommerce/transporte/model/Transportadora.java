@@ -11,7 +11,6 @@ public class Transportadora {
     private Double pesoMax;
     private Double valorBase;
     private int prazoDias;
-    private List<Entrega> entregas = new ArrayList<>();
 
     public Transportadora(){}
 
@@ -72,15 +71,4 @@ public class Transportadora {
         this.prazoDias = prazoDias;
     }
 
-    public List<Entrega> getEntregas() {
-        return entregas;
-    }
-
-    public void addEntregas(Entrega entrega) {
-        entregas.add(entrega);
-    }
-
-    public void removeEntregas(Entrega entrega) {
-        entregas.remove(entrega);
-    }
 }

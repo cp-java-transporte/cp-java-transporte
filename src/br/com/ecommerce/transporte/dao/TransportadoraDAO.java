@@ -5,7 +5,7 @@ import br.com.ecommerce.transporte.model.StatusEnum;
 import br.com.ecommerce.transporte.model.Transportadora;
 
 public interface TransportadoraDAO {
-    public Entrega criarEntrega(int id, StatusEnum status, Double valorFrete, int prazoDias, int pedidoId, int transportadoraId, Transportadora transportadora);
+    public void criarEntrega(Entrega entrega);
     public void escolherTransportadora(Transportadora transportadora);
     public void atualizarStatus(StatusEnum statusEnum);
     public void entregaRealizada(Entrega entrega);

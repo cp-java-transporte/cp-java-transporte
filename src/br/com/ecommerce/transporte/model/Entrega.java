@@ -8,22 +8,16 @@ public class Entrega {
     private int prazoDias;
     private int pedidoId;
     private int transportadoraId;
-    private Transportadora transportadora;
 
     public Entrega(){}
 
-    public Entrega(int id, StatusEnum status, Double valorFrete, int prazoDias, int pedidoId, int transportadoraId, Transportadora transportadora) {
+    public Entrega(int id, StatusEnum status, Double valorFrete, int prazoDias, int pedidoId, int transportadoraId) {
         this.id = id;
         this.status = status;
         this.valorFrete = valorFrete;
         this.prazoDias = prazoDias;
         this.pedidoId = pedidoId;
         this.transportadoraId = transportadoraId;
-        this.transportadora = transportadora;
-    }
-
-    public static Entrega criarEntrega(int id, StatusEnum status, Double valorFrete, int prazoDias, int pedidoId, int transportadoraId, Transportadora transportadora){
-        return new Entrega(id, status, valorFrete, prazoDias, pedidoId, transportadoraId, transportadora);
     }
 
     public int getId() {
@@ -74,11 +68,4 @@ public class Entrega {
         this.transportadoraId = transportadoraId;
     }
 
-    public Transportadora getTransportadora() {
-        return transportadora;
-    }
-
-    public void setTransportadora(Transportadora transportadora) {
-        this.transportadora = transportadora;
-    }
 }

@@ -4,13 +4,31 @@ import br.com.ecommerce.transporte.model.Entrega;
 import br.com.ecommerce.transporte.model.StatusEnum;
 import br.com.ecommerce.transporte.model.Transportadora;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class TransportadoraDAOimpl implements TransportadoraDAO{
+
+    private Connection connection;
+
+    public TransportadoraDAOimpl(Connection connection){
+        this.connection = connection;
+    }
+
     @Override
-    public Entrega criarEntrega(int id, StatusEnum status, Double valorFrete, int prazoDias, int pedidoId, int transportadoraId, Transportadora transportadora) {
-        String sql = "INSERTO INTO entrega (id, status, valorFrete, prazoDias, pedidoId, transportadoraId, transportadora) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        Entrega entrega = Entrega.criarEntrega(id, status, valorFrete, prazoDias, pedidoId, transportadoraId, transportadora);
-        transportadora.addEntregas(entrega);
-        return entrega;
+    public void criarEntrega(Entrega entrega) {
+        String sql = "INSERTO INTO entrega (id, status, valorFrete, prazoDias, pedidoId, transportadoraId) VALUES (?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(sql)){
+
+            statement.setString(2, String.valueOf(entrega.getStatus()));
+            statement.setDouble(3, entrega.getValorFrete());
+            statement.setInt(4, entrega.getPrazoDias());
+            statement.setInt(5, entrega.getTransportadoraId());
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -25,7 +43,6 @@ public class TransportadoraDAOimpl implements TransportadoraDAO{
 
     @Override
     public void entregaRealizada(Entrega entrega) {
-        Transportadora transportadora = entrega.getTransportadora();
-        transportadora.removeEntregas(entrega);
+
     }
 }
