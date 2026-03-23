@@ -38,35 +38,4 @@ public class TransportadoraDAOimpl implements TransportadoraDAO{
     public Pedido buscarPorId(int id) {
         return null;
     }
-
-    @Override
-    public void criarEntrega(Entrega entrega) {
-        String sql = "INSERT INTO entrega (id, status, valorFrete, prazoDias, pedidoId, transportadoraId) VALUES (?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement statement = conn.prepareStatement(sql)){
-            statement.setInt(1, entrega.getId());
-            statement.setString(2, String.valueOf(entrega.getStatus()));
-            statement.setDouble(3, entrega.getValorFrete());
-            statement.setInt(4, entrega.getPrazoDias());
-            statement.setInt(5, entrega.getPedidoId());
-            statement.setInt(6, entrega.getTransportadoraId());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Erro ao criar entrega -> " + e);
-        }
-    }
-
-    @Override
-    public void escolherTransportadora(Transportadora transportadora) {
-
-    }
-
-    @Override
-    public void atualizarStatus(StatusEnum statusEnum) {
-
-    }
-
-    @Override
-    public void entregaRealizada(Entrega entrega) {
-
-    }
 }

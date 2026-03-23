@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface EntregaDAO {
     void salvar(Entrega entrega);
-    Pedido buscarPorId(int id);
-
+    Entrega buscarPorId(int id);
+    void atualizarStatus(int id, String status);
 }

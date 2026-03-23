@@ -2,9 +2,11 @@ package br.com.ecommerce.transporte.dao;
 
 import br.com.ecommerce.transporte.model.Entrega;
 import br.com.ecommerce.transporte.model.Pedido;
+import br.com.ecommerce.transporte.model.StatusEnum;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -33,8 +35,42 @@ public class EntregaDAOimpl implements EntregaDAO{
     }
 
     @Override
-    public Pedido buscarPorId(int id) {
+    public Entrega buscarPorId(int id) {
+        String sql = "SELECT * FROM entrega WHERE id = ?";
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return new Entrega(
+                        rs.getInt("id"),
+                        StatusEnum.valueOf(rs.getString("status")),
+                        rs.getDouble("valor_frete"),
+                        rs.getInt("prazo_dias"),
+                        rs.getInt("pedido_id"),
+                        rs.getInt("transportadora_id")
+                );
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao buscar entrega", e);
+        }
+
         return null;
+    }
+
+    @Override
+    public void atualizarStatus(int id, String status) {
+        String sql = "UPDATE entrega SET status = ? WHERE id = ?";
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, status);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao atualizar status", e);
+        }
     }
 
 }

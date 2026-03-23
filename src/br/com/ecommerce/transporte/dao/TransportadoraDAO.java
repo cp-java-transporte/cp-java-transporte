@@ -10,9 +10,6 @@ import java.util.List;
 public interface TransportadoraDAO {
     void salvar(Transportadora transportadora);
     Pedido buscarPorId(int id);
-    public void criarEntrega(Entrega entrega);
-    public void escolherTransportadora(Transportadora transportadora);
-    public void atualizarStatus(StatusEnum statusEnum);
-    public void entregaRealizada(Entrega entrega);
+
 
 }
