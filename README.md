@@ -54,21 +54,16 @@ Recomendado:
 - IntelliJ IDEA
 - Eclipse
 - VS Code (com extensões Java)
-- 
+
 ---
 
 3. Configurar o Driver do Oracle
 Adicione o driver JDBC do Oracle ao projeto:
 - "ojdbc8.jar" ou superior
-  
----
-
-4. Criar as tabelas no banco
-Execute os scripts SQL informados acima.
 
 ---
 
-5. Executar a aplicação
+4. Executar a aplicação
 Execute a classe:
 Main.java
 
@@ -85,6 +80,6 @@ O sistema irá:
 ---
 
 👨‍💻 Autor:
-1. Kauan Diogo
-2. Matheus Machado
-3. Lucas Villar
+1. Kauan Diogo RM: 560727
+2. Matheus Machado RM: 560340
+3. Lucas Villar RM: 560005
