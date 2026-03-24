@@ -13,20 +13,20 @@ Este projeto simula o processo de entrega de pedidos em um sistema de e-commerce
 🧠 Fluxo do Sistema
 Pedido
 - Escolher Transportadora
-- riar Entrega
+- Criar Entrega
 - Atualizar Status:
-  AGUARDANDO_COLETA
-  PEDIDO_COLETADO
-  EM_TRANSPORTE
-  EM_ROTA_DE_ENTREGA
-  ENTREGUE
+1. AGUARDANDO_COLETA
+2. PEDIDO_COLETADO
+3. EM_TRANSPORTE
+4. EM_ROTA_DE_ENTREGA
+5. ENTREGUE
   
 ---
 🏗️ Estrutura do Projeto
 br.com.ecommerce.transporte
 
 - model         # Entidades do sistema
--  dao           # Acesso ao banco de dados (interfaces + impl)
+- dao           # Acesso ao banco de dados (interfaces + impl)
 - service       # Regras de negócio
 - exception     # Tratamento de erros
 - util          # Conexão com banco (Singleton)
