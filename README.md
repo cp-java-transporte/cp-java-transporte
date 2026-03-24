@@ -12,9 +12,9 @@ Este projeto simula o processo de entrega de pedidos em um sistema de e-commerce
 
 🧠 Fluxo do Sistema
 Pedido
-→ Escolher Transportadora
-→ Criar Entrega
-→ Atualizar Status:
+- Escolher Transportadora
+- riar Entrega
+- Atualizar Status:
   AGUARDANDO_COLETA
   PEDIDO_COLETADO
   EM_TRANSPORTE
