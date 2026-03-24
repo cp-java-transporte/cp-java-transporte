@@ -33,34 +33,6 @@ br.com.ecommerce.transporte
   
 ---
 
-🗄️ Banco de Dados (Oracle)
-Tabela: pedido
-CREATE TABLE pedido (
-   id INT PRIMARY KEY,
-   peso DOUBLE,
-   valor DOUBLE
-);
-Tabela: transportadora
-CREATE TABLE transportadora (
-   id INT PRIMARY KEY,
-   nome VARCHAR(100),
-   peso_min DOUBLE,
-   peso_max DOUBLE,
-   valor_base DOUBLE,
-   prazo_dias INT
-);
-Tabela: entrega
-CREATE TABLE entrega (
-   id INT PRIMARY KEY,
-   status VARCHAR(30),
-   valor_frete DOUBLE,
-   prazo_dias INT,
-   pedido_id INT,
-   transportadora_id INT
-);
-
----
-
 ⚙️ Configuração do Banco
 Edite a classe:
 - ConnectionDB.java
